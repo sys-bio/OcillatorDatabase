@@ -1,0 +1,43 @@
+// Version of software = 1.5
+// Seed = 2442126584
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 8
+// minNumberOfSpecies = 8
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3181.000, 11136.709,   82.702, 870457.279, 3724.788, 237846.380,    0.000, 2964.948, 
+
+S7 + $S4 -> S3;  S7*S4*17.758638724545;
+$S6 -> S2 + S2;  S6*42.1155306550208;
+S2 -> S1 + S2;  S2*8.44845567150041;
+S1 + S2 -> S7;  S1*S2*16.3312307085842;
+S3 + S5 -> S1;  S3*S5*0.00696517825126668;
+S3 + $S4 -> S5;  S3*S4*1.32696595801972;
+$S6 + S3 -> S3 + S3; S6*S3*0.273508168756962;
+S7 + S0 -> S2 + S0; S7*S0*0.800766784558072;
+S2 -> S2 + S2;  S2*4.37914409050718;
+S2 -> S2 + S2;  S2*3.28533657402732;
+S7 -> S2 + S7;  S7*1.30632099602371;
+S0 + S1 -> S0;  S0*S1*0.708794860215858;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; S5 = 0.5; S6 = 3; S7 = 7; 
+
+//------------------------------------------
+// Best fitness =    29.85
+//------------------------------------------
+
+// Number of reactions = 12
+// Number of floating species = 6
+// Iterations carried out = 1712

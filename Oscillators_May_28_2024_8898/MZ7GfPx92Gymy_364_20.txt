@@ -1,0 +1,59 @@
+// Version of software = 1.61
+// Seed = 1473479714
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 2285.477, 1654426.472, 1477.748, 25272.400,  101.551, 
+
+S0 + S0 -> S3;  S0*S0*7.01557319769636;
+S4 + S2 -> S1 + S4; S4*S2*37.435467723012;
+S2 -> S0;  S2*24.2139994230587;
+S4 + S4 -> S0;  S4*S4*9.60888666110114;
+S3 + S0 -> S2 + S4; S3*S0*0.739305845228956;
+S1 -> S1 + S2;  S1*1.0759396050591;
+S0 + S1 -> S1 + S1; S0*S1*1.53754809298553;
+S1 + S4 -> S2 + S1; S1*S4*0.911521039064973;
+S1 -> S2 + S2;  S1*1.24548395364545;
+S0 + S2 -> S2 + S2; S0*S2*1.03426442136988;
+S1 -> S1 + S0;  S1*0.716768369916826;
+S4 + S3 -> S3;  S4*S3*0.602129081217572;
+S1 -> S2 + S2;  S1*0.297878903290257;
+S1 -> S0 + S3;  S1*0.542189671704546;
+S1 -> S4 + S2;  S1*1.21281940615736;
+S1 -> S2 + S2;  S1*1.05465029566549;
+S1 -> S4 + S2;  S1*0.481221589306369;
+S1 -> S2 + S2;  S1*0.551386452559382;
+S1 -> S4 + S1;  S1*0.426690474292263;
+S1 -> S4 + S2;  S1*0.863209168706089;
+S1 -> S4 + S2;  S1*0.803208737494424;
+S1 + S2 -> S1 + S1; S1*S2*1.07529669543728;
+S1 -> S2 + S4;  S1*1.003816087218;
+S2 + S1 -> S1 + S1; S2*S1*0.855666439142078;
+S1 -> S2 + S4;  S1*1.27361327302642;
+S3 + S1 -> S4 + S3; S3*S1*0.371803002664819;
+S3 -> S2;  S3*0.650755889248103;
+S3 -> S4 + S3;  S3*0.493016975978389;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    20.78
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 5
+// Iterations carried out = 600

@@ -1,0 +1,60 @@
+// Version of software = 1.61
+// Seed = 3524304758
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+//   75.232, 3528.735, 1047.083, 1450.445,  869.568, 
+
+S2 -> S0 + S0;  S2*5.63161134338007;
+S0 + S1 -> S4;  S0*S1*9.10867997379974;
+S4 -> S2 + S4;  S4*27.8289034857415;
+S3 -> S2 + S2;  S3*0.677145914826542;
+S0 + S3 -> S3;  S0*S3*0.894412448862568;
+S4 + S4 -> S1 + S3; S4*S4*0.080130349798128;
+S1 + S3 -> S3;  S1*S3*1.39096430991776;
+S3 + S2 -> S3;  S3*S2*0.686186718894169;
+S0 -> S4 + S1;  S0*0.296184103703126;
+S0 -> S1;  S0*1.06599960741587;
+S4 + S1 -> S3;  S4*S1*0.751647014636546;
+S0 -> S2 + S0;  S0*0.84585321075283;
+S4 -> S1 + S0;  S4*1.04046875135973;
+S0 -> S2 + S2;  S0*0.706594191631302;
+S4 -> S1;  S4*0.96296405736357;
+S4 -> S2 + S1;  S4*0.987218843773007;
+S0 -> S0 + S2;  S0*0.745411207387224;
+S1 + S3 -> S3;  S1*S3*0.82101846751757;
+S4 -> S2 + S1;  S4*1.20709845954552;
+S4 -> S1 + S0;  S4*0.821201563440263;
+S4 -> S0 + S1;  S4*0.440458972100169;
+S0 -> S2 + S2;  S0*0.540205421065912;
+S2 + S2 -> S2 + S0; S2*S2*0.150417493656278;
+S0 + S0 -> S1 + S1; S0*S0*0.0338856914080679;
+S4 -> S0;  S4*0.160435770684853;
+S4 -> S0;  S4*0.887877963343635;
+S0 -> S0 + S0;  S0*0.925486850179732;
+S0 + S3 -> S3 + S2; S0*S3*0.995545232808217;
+S4 -> S0;  S4*0.964974940661341;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    10.00
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 511

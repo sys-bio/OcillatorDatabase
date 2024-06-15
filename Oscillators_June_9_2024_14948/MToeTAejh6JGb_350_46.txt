@@ -1,0 +1,59 @@
+// Version of software = 1.61
+// Seed = 2864399679
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3682.365,  507.962,    0.000, 3077.438, 3640.738, 
+
+S3 -> S3 + S1;  S3*21.5979734679218;
+S3 + S4 -> S0;  S3*S4*46.7037592422683;
+S3 + $S2 -> S0;  S3*S2*1.32816585847177;
+S0 + S1 -> S4 + S3; S0*S1*38.4138770182151;
+S0 -> S1;  S0*46.3530141621362;
+S1 + S4 -> S1;  S1*S4*1.38401771471836;
+$S2 + $S2 -> S1;  S2*S2*0.230801427178085;
+S4 + S1 -> S0;  S4*S1*0.53109851363115;
+S4 + S1 -> S1;  S4*S1*2.04149995357729;
+S3 -> S0 + S0;  S3*0.299628029158339;
+$S2 -> S1 + S1;  S2*0.681147554889321;
+S4 -> S4 + S0;  S4*0.633526436518878;
+S4 + S4 -> S3;  S4*S4*1.50717357499525;
+S4 -> S4 + S4;  S4*0.371624653134495;
+S1 + S4 -> S1;  S1*S4*0.528709899727255;
+S4 + S4 -> S0;  S4*S4*1.17637984906323;
+S0 -> S3 + S3;  S0*0.581490164296702;
+S0 -> S0 + S0;  S0*0.969039706746116;
+S4 + S4 -> S3;  S4*S4*0.683090898999944;
+S0 + S4 -> S3;  S0*S4*1.18797314828262;
+S4 + S4 -> S0;  S4*S4*0.948643120005727;
+S0 -> S3 + S0;  S0*0.904860554542392;
+S4 -> S4 + S4;  S4*1.20649328026921;
+S0 + S1 -> S0;  S0*S1*1.00446412339807;
+$S2 -> S1 + S4;  S2*0.698874008655548;
+S0 + S1 -> S0;  S0*S1*0.732627427391708;
+S0 -> S0 + S0;  S0*0.795358832646161;
+S4 -> S4 + S4;  S4*0.762376873893663;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    46.62
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 4
+// Iterations carried out = 600

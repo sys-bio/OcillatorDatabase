@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 2838298607
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+//  803.727, 8071.996, 3587.903,  529.008,  184.988, 
+
+S0 -> S4;  S0*20.3691093964968;
+S2 + S1 -> S3;  S2*S1*0.285086548514664;
+S3 -> S1;  S3*22.9259015366901;
+S4 + S2 -> S3;  S4*S2*34.8964177507907;
+S0 -> S1 + S3;  S0*12.3683911746833;
+S3 -> S3 + S0;  S3*0.751126664923504;
+S1 + S4 -> S0 + S4; S1*S4*1.29597849100828;
+S3 -> S3 + S0;  S3*1.17410491360351;
+S3 -> S3 + S0;  S3*1.02803404578008;
+S2 -> S2 + S4;  S2*0.454680438851938;
+S3 -> S3 + S1;  S3*0.888508178200573;
+S3 -> S3 + S1;  S3*0.378538863128051;
+S1 -> S3;  S1*0.0463022698182613;
+S2 -> S0 + S0;  S2*0.530945573514327;
+S4 -> S2 + S3;  S4*0.715823892690241;
+S0 -> S4 + S2;  S0*0.855155377788469;
+S3 -> S3 + S2;  S3*0.7884718101006;
+S3 -> S3 + S3;  S3*0.399954246077687;
+S3 -> S1 + S3;  S3*0.832141261454672;
+S3 -> S3 + S4;  S3*1.04746600915678;
+S1 + S3 -> S3 + S2; S1*S3*0.198011119430885;
+S4 -> S1 + S2;  S4*0.709738490357995;
+S0 + S1 -> S2 + S0; S0*S1*0.183535206504166;
+S4 + S0 -> S3 + S0; S4*S0*0.181002489337698;
+S2 + S1 -> S0;  S2*S1*0.335467647202313;
+S0 + S0 -> S1;  S0*S0*0.637716985400766;
+S4 -> S4 + S3;  S4*0.704518611542881;
+S0 -> S3 + S0;  S0*0.560328058665618;
+S4 -> S4 + S4;  S4*0.672156165819615;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    38.26
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 600

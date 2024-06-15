@@ -1,0 +1,60 @@
+// Version of software = 1.61
+// Seed = 349914324
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+//  103.507,  228.067,  617.411, 3683.350, 3438.319, 
+
+S2 -> S1 + S0;  S2*44.4568752386142;
+S3 + S2 -> S1;  S3*S2*28.4399759436958;
+S3 + S0 -> S1 + S2; S3*S0*29.0344260000158;
+S0 + S4 -> S4;  S0*S4*18.490643835254;
+S0 -> S3 + S1;  S0*1.38329279804602;
+S2 -> S4 + S3;  S2*0.130199052859098;
+S2 -> S3 + S0;  S2*1.45603709067218;
+S3 + S4 -> S0;  S3*S4*0.685258907079697;
+S4 + S3 -> S3;  S4*S3*0.632345721405;
+S0 -> S3 + S2;  S0*1.19928108067252;
+S2 -> S3 + S0;  S2*0.990900477999821;
+S3 + S4 -> S0;  S3*S4*0.948442981252447;
+S4 + S3 -> S0;  S4*S3*1.17862912877463;
+S4 + S3 -> S0;  S4*S3*1.10060169394128;
+S0 -> S0 + S3;  S0*0.608303001569584;
+S4 + S3 -> S3;  S4*S3*0.734282722091302;
+S0 + S1 -> S2 + S0; S0*S1*0.592247418453917;
+S4 + S3 -> S3;  S4*S3*0.765637872554362;
+S0 -> S0 + S0;  S0*1.05411461121403;
+S2 -> S0 + S3;  S2*0.539993184339255;
+S0 -> S0 + S3;  S0*0.90012234072201;
+S3 + S4 -> S0;  S3*S4*0.919053773814812;
+S1 + S0 -> S0;  S1*S0*0.110193419735879;
+S1 -> S1 + S0;  S1*0.762986368127167;
+S1 + S1 -> S2;  S1*S1*0.320693642646074;
+S0 -> S3;  S0*0.59139430844225;
+S0 -> S1 + S3;  S0*0.264620738103986;
+S4 + S2 -> S4;  S4*S2*1.03867759983987;
+S2 + S3 -> S1 + S1; S2*S3*0.718595783924684;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    10.32
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 600

@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 3651038043
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 249015.090, 3580.464, 2571.754, 2208.932,  477.880, 
+
+S3 -> S4 + S3;  S3*16.3295364172198;
+S3 -> S4;  S3*12.9616807402112;
+S2 -> S3 + S0;  S2*47.7212747269776;
+S2 -> S2 + S3;  S2*46.4628402298316;
+S1 + S3 -> S4;  S1*S3*37.530188582465;
+S1 + S4 -> S2;  S1*S4*45.9054031203035;
+S4 + S3 -> S1 + S2; S4*S3*0.212815992627293;
+S0 -> S1 + S1;  S0*1.12089453274384;
+S3 + S2 -> S4;  S3*S2*1.284854541393;
+S4 -> S4 + S4;  S4*1.7379883271642;
+S4 -> S4 + S4;  S4*1.5577045653481;
+S2 + S0 -> S0;  S2*S0*0.265898285852745;
+S0 + S3 -> S0;  S0*S3*0.0742820008192211;
+S4 -> S4 + S0;  S4*0.403539478778839;
+S4 -> S2 + S4;  S4*1.37314182026312;
+S4 -> S2 + S2;  S4*0.868447055341676;
+S3 -> S3 + S0;  S3*1.24834450003691;
+S2 + S3 -> S2;  S2*S3*0.796414775261656;
+S2 + S2 -> S1;  S2*S2*0.774337241007015;
+S2 + S4 -> S4 + S3; S2*S4*0.17877971730195;
+S2 + S3 -> S4;  S2*S3*0.843503077095374;
+S3 -> S2;  S3*0.962488571973518;
+S3 -> S0 + S2;  S3*0.259391443338245;
+S1 -> S3;  S1*0.552297587646171;
+S3 -> S0 + S2;  S3*0.480512002715841;
+S3 + S3 -> S4 + S2; S3*S3*0.539866770850495;
+S3 -> S0 + S0;  S3*0.479796011932194;
+S3 -> S4 + S2;  S3*0.823234023991972;
+S3 -> S3 + S2;  S3*0.832004068884999;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    35.90
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 600

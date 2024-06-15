@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 2517010526
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3519.190, 3009.259,  155.865, 3410.657, 3687.011, 
+
+S4 -> S1 + S2;  S4*41.1590649836231;
+S0 + S0 -> S3;  S0*S0*39.2643227085005;
+S1 -> S1 + S2;  S1*34.2122986672446;
+S2 -> S0;  S2*0.901853820635006;
+S0 + S2 -> S2;  S0*S2*1.55113175152801;
+S1 + S2 -> S2 + S2; S1*S2*0.173702409258112;
+S2 + S3 -> S0;  S2*S3*1.1769375838805;
+S2 + S4 -> S2;  S2*S4*1.33476011324674;
+S1 -> S1 + S4;  S1*1.16759808082134;
+S2 + S4 -> S2;  S2*S4*0.572016290714964;
+S2 + S3 -> S3;  S2*S3*0.739417634485289;
+S2 + S3 -> S3 + S4; S2*S3*0.342260610079393;
+S3 -> S0 + S3;  S3*0.788202810147777;
+S2 + S4 -> S2;  S2*S4*0.868082992220297;
+S3 + S2 -> S3;  S3*S2*0.681906234566122;
+S2 + S3 -> S3 + S0; S2*S3*0.667953469185159;
+S0 -> S3 + S3;  S0*1.02394236614928;
+S4 + S3 -> S4;  S4*S3*0.583155460841954;
+S3 -> S3 + S3;  S3*1.06050780215301;
+S3 -> S3 + S3;  S3*1.28187957694754;
+S3 -> S3 + S3;  S3*0.625499316258356;
+S3 + S4 -> S1;  S3*S4*0.881529983971268;
+S1 + S0 -> S1;  S1*S0*0.843205962656066;
+S0 -> S3 + S0;  S0*0.949106827797368;
+S4 + S3 -> S4;  S4*S3*0.637333641108125;
+S3 -> S3 + S0;  S3*0.758356529520825;
+S4 + S2 -> S0;  S4*S2*0.433749470440671;
+S0 + S1 -> S1;  S0*S1*0.659127736696973;
+S0 -> S2 + S3;  S0*0.400562738766894;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    14.00
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 600

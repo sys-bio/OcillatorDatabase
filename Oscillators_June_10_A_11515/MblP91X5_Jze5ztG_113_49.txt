@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 792855767
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3285.040, 77405733.355, 2661.639,  364.732, 1645963.155, 
+
+S2 + S4 -> S0;  S2*S4*5.91142778578215;
+S1 -> S0 + S4;  S1*13.5281156660989;
+S0 + S4 -> S4;  S0*S4*34.4031562522985;
+S2 -> S1 + S3;  S2*46.7755937711336;
+S4 -> S1 + S2;  S4*0.846914979815483;
+S2 + S4 -> S2;  S2*S4*1.00497906710953;
+S0 + S1 -> S3 + S4; S0*S1*0.807006549974903;
+S1 + S0 -> S1 + S1; S1*S0*1.28807567246258;
+S1 + S0 -> S4 + S3; S1*S0*0.678913541324437;
+S1 -> S3 + S2;  S1*1.23971665552817;
+S0 -> S1 + S1;  S0*0.260967552894726;
+S3 -> S3 + S3;  S3*0.844859613990411;
+S1 + S0 -> S3 + S1; S1*S0*0.876588234398514;
+S1 -> S2 + S1;  S1*0.798816325468943;
+S3 -> S3 + S1;  S3*0.691770167928189;
+S3 + S4 -> S1 + S1; S3*S4*1.54689355050214;
+S1 -> S1 + S2;  S1*0.561405773507431;
+S4 -> S2 + S1;  S4*0.554160716058686;
+S0 + S3 -> S2 + S3; S0*S3*0.989204157283529;
+S1 -> S3 + S2;  S1*0.339987778011709;
+S1 -> S3 + S2;  S1*0.582043142616749;
+S1 -> S2 + S2;  S1*0.883231418440118;
+S1 -> S2 + S3;  S1*0.518087791837752;
+S1 -> S2 + S2;  S1*0.331511876080185;
+S1 + S2 -> S3 + S1; S1*S2*0.267991821328178;
+S1 -> S4 + S2;  S1*0.541123324306682;
+S4 -> S2 + S2;  S4*0.622587926778942;
+S3 -> S3 + S2;  S3*0.780187793867663;
+S4 -> S2 + S1;  S4*0.326230637775734;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    49.60
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 600

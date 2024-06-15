@@ -1,0 +1,59 @@
+// Version of software = 1.61
+// Seed = 347621368
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3634.252, 2342.214, 2932.258,  249.813, 1118.648, 
+
+S2 + S2 -> S1;  S2*S2*13.2810061930213;
+S3 + S0 -> S1;  S3*S0*24.7833341068588;
+S4 -> S1 + S3;  S4*34.3720763959456;
+S3 + S1 -> S2 + S3; S3*S1*3.35769784650765;
+S0 -> S2 + S4;  S0*31.1059832446277;
+S3 -> S0;  S3*0.326847504731268;
+S2 + S2 -> S0 + S4; S2*S2*1.45385708413087;
+S3 + S1 -> S4;  S3*S1*1.05444119651802;
+S3 + S1 -> S4;  S3*S1*1.15068718879484;
+S4 + S1 -> S4 + S4; S4*S1*1.27967772050761;
+S4 -> S4 + S4;  S4*0.928728687670082;
+S2 + S4 -> S4 + S1; S2*S4*1.36946235252544;
+S2 + S1 -> S1 + S1; S2*S1*1.19039324033074;
+S1 -> S0 + S1;  S1*1.48760004146025;
+S2 + S3 -> S2;  S2*S3*0.123951314436272;
+S4 -> S4 + S2;  S4*0.773142962995917;
+S4 -> S4 + S1;  S4*0.620788633543998;
+S4 + S2 -> S1 + S4; S4*S2*0.899920497555286;
+S2 + S4 -> S0 + S4; S2*S4*1.24140830566175;
+S1 -> S0 + S4;  S1*0.946515211043879;
+S4 -> S2 + S1;  S4*0.531217544944957;
+S4 -> S1 + S0;  S4*0.24907800857909;
+S4 -> S4 + S4;  S4*0.313302571652457;
+S1 -> S0 + S2;  S1*1.16425630874;
+S4 + S2 -> S0 + S4; S4*S2*0.859552311757579;
+S1 -> S0 + S0;  S1*1.17821619128808;
+S1 -> S0 + S2;  S1*0.491383034922183;
+S1 -> S0 + S2;  S1*1.27043820493855;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    25.11
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 5
+// Iterations carried out = 600

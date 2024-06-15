@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 3379029210
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+//    0.000, 6630.323, 14413.922, 2497.074,  260.747, 
+
+S2 -> S1;  S2*21.545346348593;
+$S0 + S1 -> S4;  S0*S1*35.0451922477223;
+S3 + S4 -> S3;  S3*S4*7.15755900363438;
+$S0 + S4 -> S2;  S0*S4*46.8083790354896;
+S4 -> S4 + S1;  S4*0.928988271486014;
+S2 -> S1 + S4;  S2*1.41353430752642;
+S2 -> S1 + S1;  S2*1.49113460988738;
+S4 + S4 -> S2 + S4; S4*S4*1.54882646310143;
+$S0 + S2 -> S1 + S1; S0*S2*1.29224941395223;
+S2 -> S4 + S2;  S2*0.470133664319292;
+S2 -> S4 + S2;  S2*0.787933572521433;
+S1 -> S3;  S1*0.17107076565735;
+S4 -> S4 + S1;  S4*0.771215279353782;
+S2 -> S2 + S1;  S2*0.369043050706387;
+S2 -> S2 + S1;  S2*0.708547531627119;
+S1 -> S2 + S1;  S1*0.941953251138329;
+S2 -> S4 + S4;  S2*0.917635378101841;
+S2 -> S4 + S1;  S2*1.13909572451375;
+$S0 + S1 -> S4 + S1; S0*S1*1.08957776376046;
+S3 -> S4 + S2;  S3*0.877138629788533;
+S2 -> S1 + S4;  S2*0.414904551301151;
+S2 + S4 -> S1 + S2; S2*S4*0.982170773437247;
+S2 -> S4 + S4;  S2*0.54828822594136;
+S3 + $S0 -> S1 + S2; S3*S0*0.1031792989932;
+S3 + S2 -> S3;  S3*S2*0.306285624532029;
+S2 -> S4 + S1;  S2*0.888138274336234;
+S1 -> S1 + S1;  S1*0.630689632194117;
+$S0 + S4 -> S2;  S0*S4*0.45106966109015;
+$S0 -> S1;  S0*0.987637191219255;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    26.88
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 4
+// Iterations carried out = 600

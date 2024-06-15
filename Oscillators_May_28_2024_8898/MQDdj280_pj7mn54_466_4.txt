@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 2078440879
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3708.999, 2331.958, 3175.054, 1584.345, 36170.945, 
+
+S3 + S2 -> S2;  S3*S2*10.7017789810896;
+S2 -> S4 + S4;  S2*24.2586957546882;
+S2 -> S4 + S4;  S2*38.960119666392;
+S1 -> S3;  S1*39.6051434588619;
+S1 -> S1 + S1;  S1*1.11882179882377;
+S1 -> S3 + S1;  S1*1.37593994527124;
+S4 -> S2 + S1;  S4*0.994228013418615;
+S1 -> S1 + S4;  S1*0.543348974734545;
+S1 -> S4 + S4;  S1*0.930110899545252;
+S1 -> S1 + S4;  S1*0.780082081910223;
+S3 -> S4;  S3*0.208927493169904;
+S3 + S4 -> S3 + S1; S3*S4*0.301098144752905;
+S0 -> S2 + S4;  S0*0.852380666695535;
+S1 -> S4 + S1;  S1*0.860535700479522;
+S4 -> S4 + S2;  S4*0.716256641363725;
+S0 -> S2;  S0*0.612923393491656;
+S3 + S2 -> S1;  S3*S2*0.64179836330004;
+S4 -> S2 + S4;  S4*0.847951555019245;
+S4 -> S4 + S2;  S4*0.260269578825682;
+S4 -> S4 + S4;  S4*0.363764854054898;
+S2 + S3 -> S2;  S2*S3*0.419938813569024;
+S3 -> S2 + S4;  S3*0.193510187789798;
+S1 -> S1 + S1;  S1*0.956976385926828;
+S2 + S1 -> S1;  S2*S1*0.13088974240236;
+S2 + S2 -> S1;  S2*S2*0.424956058384851;
+S3 + S2 -> S3;  S3*S2*0.235019701579586;
+S0 -> S3 + S2;  S0*1.01077359304763;
+S0 + S3 -> S1;  S0*S3*0.794177930988371;
+S3 -> S0 + S4;  S3*0.720827696379274;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =     4.08
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 506

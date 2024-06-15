@@ -1,0 +1,59 @@
+// Version of software = 1.61
+// Seed = 834306275
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 157650.488,  659.568,    0.000, 70954.374, 3619.343, 
+
+$S2 + S4 -> S1;  S2*S4*18.1864650258329;
+$S2 -> S3 + S4;  S2*19.504268199997;
+S4 + S3 -> S4;  S4*S3*16.1498939469922;
+S0 -> S4 + S0;  S0*0.787222796306014;
+S3 -> S1 + S0;  S3*0.872197532840073;
+S4 + S3 -> S3 + S3; S4*S3*1.41345769637264;
+S1 + S0 -> S0;  S1*S0*0.0737610067240894;
+S3 -> S1 + S0;  S3*0.915613249037415;
+S0 + S4 -> S4;  S0*S4*1.25986081282608;
+S3 -> S0 + S1;  S3*0.413558908505365;
+S3 -> S1 + S3;  S3*1.26414488260634;
+S4 + S3 -> S3;  S4*S3*1.21374264201149;
+S4 + S3 -> S3;  S4*S3*1.04507601293735;
+S4 + S3 -> S3;  S4*S3*0.9284184794873;
+S1 -> S3 + S1;  S1*0.710105812503025;
+S3 + S4 -> S3;  S3*S4*0.877102467603982;
+S1 -> S1 + S3;  S1*0.279739007959142;
+S4 + S0 -> S4;  S4*S0*0.531619243416935;
+S3 -> S3 + S3;  S3*0.524037433089688;
+S3 -> S3 + S3;  S3*1.11507413773797;
+$S2 + $S2 -> S3;  S2*S2*0.925595964118838;
+S3 -> S3 + S3;  S3*1.16088148439303;
+S4 + S0 -> S4;  S4*S0*0.821980655333027;
+$S2 + S1 -> S3;  S2*S1*1.12076349486597;
+S3 -> S3 + S3;  S3*0.628443325124681;
+S1 -> S3 + S1;  S1*0.724818813242018;
+S3 -> S3 + S3;  S3*0.343480037711561;
+S4 + S1 -> S3;  S4*S1*0.57685605273582;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    67.86
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 4
+// Iterations carried out = 600

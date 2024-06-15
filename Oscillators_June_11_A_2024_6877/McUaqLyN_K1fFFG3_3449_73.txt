@@ -1,0 +1,59 @@
+// Version of software = 1.64
+// Seed = 1404262420
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 1905.343, 3468.088,  718.930, 3539.992, 2797.750, 
+
+S4 + S3 -> S2 + S1; S4*S3*22.7666295425501;
+S2 + S1 -> S3;  S2*S1*7.49711938928813;
+S1 -> S1 + S3;  S1*42.7103194720578;
+S3 -> S4 + S2;  S3*44.1451270661317;
+S2 -> S4;  S2*0.174988983571529;
+S0 + S0 -> S4;  S0*S0*0.0215233064256608;
+S0 -> S4 + S0;  S0*1.76052537295036;
+S4 + S3 -> S2;  S4*S3*1.29019050374627;
+S1 -> S2 + S3;  S1*0.787323676189408;
+S0 + S1 -> S0;  S0*S1*0.491618587309495;
+S0 + S3 -> S0;  S0*S3*0.145816919393837;
+S4 + S3 -> S2 + S2; S4*S3*0.166903732391074;
+S1 -> S2;  S1*0.544950523460284;
+S1 + S2 -> S2 + S3; S1*S2*0.730773908179253;
+S3 -> S4 + S2;  S3*1.04181474070065;
+S1 -> S0 + S4;  S1*0.542631216114387;
+S3 -> S2 + S3;  S3*0.877848994033411;
+S3 -> S0 + S2;  S3*1.05604355051182;
+S1 -> S4;  S1*0.423458145838231;
+S1 + S0 -> S2 + S1; S1*S0*0.995785425649956;
+S3 -> S0 + S0;  S3*0.974015647498891;
+S3 -> S2 + S2;  S3*0.775560331577435;
+S0 + S1 -> S4 + S3; S0*S1*0.349735881760716;
+S3 -> S0 + S3;  S3*0.474438148085028;
+S3 -> S4 + S0;  S3*0.494835484633222;
+S3 -> S0 + S2;  S3*1.02599345832132;
+S1 + S0 -> S1;  S1*S0*0.732201155321673;
+S2 + S4 -> S4 + S0; S2*S4*0.2278577235993;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    73.25
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 5
+// Iterations carried out = 600

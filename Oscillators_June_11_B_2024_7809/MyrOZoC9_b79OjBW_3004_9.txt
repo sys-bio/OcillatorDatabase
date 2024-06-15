@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 3097415703
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3553.799,   92.166,  709.981, 1946.951, 2589.193, 
+
+S2 -> S2 + S0;  S2*23.5613400123548;
+S0 -> S4 + S0;  S0*48.0938805227168;
+S4 + S4 -> S2;  S4*S4*11.9027946407907;
+S2 + S0 -> S4;  S2*S0*40.6654508366715;
+S1 -> S1 + S2;  S1*1.14557811464183;
+S1 -> S2 + S2;  S1*1.08218268756755;
+S2 + S3 -> S1 + S1; S2*S3*0.353030994953588;
+S1 -> S4 + S2;  S1*1.70322220660746;
+S3 -> S3 + S3;  S3*1.23285689526238;
+S1 -> S2 + S1;  S1*1.18497544471174;
+S1 -> S1 + S2;  S1*1.01002870337106;
+S0 + S1 -> S2;  S0*S1*0.91283666822128;
+S1 -> S2 + S1;  S1*1.02662341413088;
+S3 -> S3 + S3;  S3*1.67531186710112;
+S1 -> S1 + S4;  S1*0.879936383292079;
+S1 -> S2 + S1;  S1*1.02043161569163;
+S1 -> S2 + S1;  S1*0.915374503331259;
+S1 -> S1 + S2;  S1*1.06327123437077;
+S2 + S3 -> S3;  S2*S3*0.891082621598616;
+S0 -> S0 + S3;  S0*1.0402827648446;
+S1 -> S2 + S1;  S1*0.947546396544203;
+S0 -> S3 + S3;  S0*0.515989336092025;
+S0 -> S2 + S3;  S0*0.633836911711842;
+S0 -> S3 + S3;  S0*0.484012938337401;
+S4 -> S0 + S3;  S4*0.260315494146198;
+S3 -> S1 + S3;  S3*0.656912074889988;
+S0 -> S3 + S0;  S0*0.668991532921791;
+S1 + S0 -> S2 + S0; S1*S0*0.508198956726119;
+S1 -> S0 + S3;  S1*0.0747188273817301;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =     9.40
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 589

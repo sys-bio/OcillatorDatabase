@@ -1,0 +1,60 @@
+// Version of software = 1.61
+// Seed = 2262363576
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 1549263.358,   40.166, 3471.415, 45545.286, 3061.329, 
+
+S2 -> S4 + S3;  S2*22.54075146541;
+S2 + S1 -> S2;  S2*S1*4.87974659400061;
+S3 -> S1;  S3*2.41626573335379;
+S4 -> S4 + S2;  S4*28.0248224165756;
+S3 -> S3 + S1;  S3*1.21483034659177;
+S3 -> S4 + S1;  S3*1.05567614142783;
+S1 + S2 -> S2 + S4; S1*S2*1.12964605218731;
+S3 -> S3 + S4;  S3*0.649628196470439;
+S0 + S1 -> S1;  S0*S1*0.0145016948226839;
+S0 -> S3 + S1;  S0*0.652687342325225;
+S3 -> S1 + S1;  S3*0.302531437203288;
+S1 + S4 -> S1;  S1*S4*0.595588418329135;
+S3 -> S1 + S0;  S3*0.823239812115207;
+S1 + S2 -> S4;  S1*S2*0.635958200972527;
+S0 -> S4 + S0;  S0*0.55187314087525;
+S1 + S0 -> S3;  S1*S0*0.0487484174780547;
+S0 -> S0 + S3;  S0*0.582988882344216;
+S4 -> S4 + S4;  S4*0.476498228078708;
+S0 -> S4 + S3;  S0*1.0815736847464;
+S3 + S4 -> S1;  S3*S4*0.404614702705294;
+S0 -> S0 + S3;  S0*0.427782902680337;
+S3 -> S0;  S3*0.851562100090087;
+S3 -> S0 + S1;  S3*0.793105533765629;
+S0 -> S0 + S1;  S0*0.718357379268855;
+S4 + S1 -> S4;  S4*S1*0.613176967855543;
+S3 + S4 -> S0;  S3*S4*0.893531636707485;
+S1 + S2 -> S2;  S1*S2*0.414980183402076;
+S3 -> S0 + S4;  S3*0.451478441990912;
+S1 + S2 -> S3;  S1*S2*0.329624048434198;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =     9.99
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 449

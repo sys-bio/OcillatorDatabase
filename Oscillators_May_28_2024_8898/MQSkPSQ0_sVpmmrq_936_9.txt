@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 280291770
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+//    0.000, 836233.997, 4967.119, 3940.627, 31404.470, 
+
+S1 -> S4;  S1*0.864627575455233;
+S2 -> S4 + S2;  S2*20.4855273447465;
+S2 + S4 -> S3;  S2*S4*6.27177668930963;
+$S0 -> S3 + S2;  S0*41.8335978765506;
+$S0 -> S2;  S0*29.1482281645294;
+S3 + S4 -> S1;  S3*S4*19.0651883610524;
+S3 + $S0 -> S2;  S3*S0*1.21715061017312;
+S2 -> S2 + S3;  S2*1.23064353596419;
+S2 -> S3 + S2;  S2*1.37521170573309;
+S3 -> S3 + S3;  S3*1.42100396445021;
+S4 + S3 -> S2;  S4*S3*0.768544320669025;
+S2 -> S2 + S2;  S2*0.802840532921255;
+S3 + S4 -> S3 + S3; S3*S4*0.607971282536164;
+S2 -> S2 + S2;  S2*0.52145356638357;
+$S0 + S1 -> S4;  S0*S1*0.455829729698598;
+S2 -> S3 + S2;  S2*1.02003578906879;
+S3 -> S2 + S2;  S3*0.996069815428928;
+S3 -> S3 + S2;  S3*0.655654869088903;
+S3 -> S3 + S3;  S3*1.11805158047937;
+S2 -> S2 + S2;  S2*0.566000170866028;
+S4 + S2 -> S1 + S2; S4*S2*0.466664579091594;
+S2 -> S2 + S2;  S2*0.967031796602532;
+S2 -> S3 + S2;  S2*0.926519762957469;
+$S0 + S2 -> S3 + S2; S0*S2*1.10107630905695;
+S1 -> S3 + S4;  S1*0.431493225274608;
+S2 + $S0 -> S3 + S3; S2*S0*0.879850594233722;
+S3 + S4 -> S2;  S3*S4*0.435009407065809;
+$S0 + S3 -> S3 + S2; S0*S3*0.293115115491673;
+S4 + $S0 -> S3;  S4*S0*1.30973059623502;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =     9.89
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 4
+// Iterations carried out = 587

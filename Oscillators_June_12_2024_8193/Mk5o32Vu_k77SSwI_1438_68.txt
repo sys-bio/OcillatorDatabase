@@ -1,0 +1,59 @@
+// Version of software = 1.64
+// Seed = 4278767831
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 3480.440,    0.000,  675.797, 3409.834, 3645.808, 
+
+S4 -> S2 + S2;  S4*23.2603365915362;
+S2 -> S2 + S0;  S2*8.85918108904734;
+S0 + $S1 -> S2;  S0*S1*21.0286553241313;
+S0 + $S1 -> S2;  S0*S1*32.1505493207835;
+S0 -> S0 + S3;  S0*14.1252675194293;
+$S1 + S3 -> S4;  S1*S3*38.912810858665;
+S4 + S2 -> S3;  S4*S2*29.0853314752225;
+S2 -> S0 + S2;  S2*0.89970897808671;
+$S1 -> S2 + S2;  S1*1.33807480423711;
+S0 + S2 -> S2 + S2; S0*S2*0.831670636078343;
+S2 -> S2 + S2;  S2*0.876476989686489;
+S3 + S0 -> S2;  S3*S0*0.726183906616643;
+S2 -> S2 + S2;  S2*0.861642637290061;
+S4 -> S3 + S3;  S4*1.18295958084054;
+S4 + S2 -> S3;  S4*S2*1.84998716725968;
+S4 -> S3 + S4;  S4*0.979507994232699;
+S4 + S2 -> S3;  S4*S2*0.632192613417283;
+S4 + S4 -> S0;  S4*S4*0.992701391363517;
+S4 + S2 -> S3;  S4*S2*1.34767383341677;
+S4 + S2 -> S3;  S4*S2*0.750720306066796;
+S4 + S2 -> S3;  S4*S2*0.611396296136081;
+S4 + S4 -> S4;  S4*S4*1.08316277801059;
+S4 + S4 -> S4;  S4*S4*1.22998019987717;
+S2 + S4 -> S3;  S2*S4*0.962408394925296;
+$S1 -> S0;  S1*0.25190332182683;
+S4 + S4 -> S4;  S4*S4*0.595950529677794;
+S2 + S4 -> S0 + S3; S2*S4*1.03895477382466;
+S2 + S4 -> S3 + S0; S2*S4*1.03747805068269;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =    68.60
+//------------------------------------------
+
+// Number of reactions = 28
+// Number of floating species = 4
+// Iterations carried out = 600

@@ -1,0 +1,60 @@
+// Version of software = 1.64
+// Seed = 2720135992
+// maxPopulationSize = 100
+// maxNumberOfSpecies = 5
+// minNumberOfSpecies = 5
+// maxNumberOfReactions = 8
+// minNumberOfReactions = 8
+// probabilityOfUniUni = 0.1
+// probabilityOfBiUni = 0.4
+// probabilityOfUniBi = 0.4
+// probabilityOfBiBi = 0.1
+// percentageClone = 0.2
+// initialConcentrations = 
+// 2, 5, 7, 10, 1, 0.5, 3, 7, 12, 4, 1, 3, 7, 9, 1, 7, 2, 8, 5, 10, 
+// maxInitialRateConstant = 50
+// rateConstantMutation = 0.7
+// addReactionMutation = 0.1
+// deleteReactionMutation = 0.2
+// Fitness of nodes:
+// 2848.694,   53.893, 3672.461, 1907.077,  339.090, 
+
+S2 -> S0 + S0;  S2*38.7062271613162;
+S2 + S1 -> S3;  S2*S1*23.8048122293782;
+S1 + S3 -> S1;  S1*S3*1.38397263060324;
+S1 -> S3 + S2;  S1*0.524008100759238;
+S4 -> S3 + S3;  S4*1.37644467251375;
+S4 -> S3 + S4;  S4*0.513715542666614;
+S4 -> S1 + S3;  S4*1.18321962929331;
+S4 -> S1 + S3;  S4*1.4176053037867;
+S0 + S3 -> S3 + S4; S0*S3*1.45974772549234;
+S1 -> S2 + S2;  S1*0.213016364490613;
+S4 -> S4 + S3;  S4*1.38775619682856;
+S4 -> S4 + S1;  S4*1.14288388392888;
+S4 -> S4 + S0;  S4*1.18092039613985;
+S4 -> S3 + S4;  S4*0.628468987811357;
+S0 -> S3 + S2;  S0*1.36304060374387;
+S4 -> S3 + S3;  S4*0.988669688859954;
+S0 + S1 -> S3;  S0*S1*0.354334831144661;
+S4 -> S4 + S0;  S4*0.6746985767968;
+S3 + S0 -> S4 + S2; S3*S0*0.653183629037812;
+S4 -> S4 + S3;  S4*0.936754805827513;
+S4 -> S2 + S4;  S4*0.371344776730985;
+S3 + S3 -> S4 + S0; S3*S3*0.624999931780621;
+S0 -> S2 + S2;  S0*0.334204548224807;
+S4 -> S4 + S1;  S4*0.948126888414845;
+S4 + S2 -> S4;  S4*S2*0.698047208506614;
+S3 -> S2 + S2;  S3*0.788872628472745;
+S0 + S4 -> S3 + S0; S0*S4*0.277165201446041;
+S4 -> S3 + S3;  S4*0.42009357130155;
+S4 -> S3;  S4*0.475682670064271;
+
+S0 = 2; S1 = 5; S2 = 7; S3 = 10; S4 = 1; 
+
+//------------------------------------------
+// Best fitness =     4.28
+//------------------------------------------
+
+// Number of reactions = 29
+// Number of floating species = 5
+// Iterations carried out = 470
