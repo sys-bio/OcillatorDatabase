@@ -5,6 +5,7 @@ import typing
 
 import requests
 
+'''
 now = time.time()
 y = requests.get("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
 if y != open("checksum", "r").read():
@@ -16,7 +17,11 @@ print(time.time() - now)
 now = time.time()
 x = requests.get("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json")
 print(time.time() - now)
-
+'''
+dict1 = json.load(open("metadata.json", "r"))
+for item in dict1:
+    item["modelType"] = "oscillator"
+json.dump(dict1, open("metadata.json", "w"))
 
 
 

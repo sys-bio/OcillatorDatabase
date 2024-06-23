@@ -17,11 +17,7 @@ def request_metadata(checksum):
 
 
 def get_metadata():
-    now = time.time()
     checksum = requests.head("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
-    print(checksum)
-
-    print(time.time() - now)
     if not os.path.isfile("checksum") or not os.path.isfile("metadata.json"):
         return request_metadata(checksum)
     if checksum != open("checksum", "r").read():
