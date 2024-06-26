@@ -1,4 +1,5 @@
 import asyncio
+import itertools
 import json
 import os.path
 import time
@@ -35,22 +36,24 @@ async def get(url, session, resultant_dir):
         print("Unable to get url {} due to {}.".format(url, e.__class__))
 
 
-async def lookup(data, num_species, num_reactions, model_type, resultant_dir):
-    paths = [item['path'] for item in
-             data if
-             item["numSpecies"] == num_species and item["numReactions"] == num_reactions and item[
-                 "modelType"] == model_type]
+async def lookup(data, resultant_dir, num_species = None, num_reactions = None, model_type = None, ):
+    paths = []
+    combinations = itertools.product(
+        [None, num_species] if num_species is not None else [None],
+        [None, num_reactions] if num_reactions is not None else [None],
+        [None, model_type] if model_type is not None else [None]
+    )
+
+    for ns, nr, mt in combinations:
+        for item in data:
+            if (ns is None or item.get('num_species') == ns) and \
+                    (nr is None or item.get('num_reactions') == nr) and \
+                    (mt is None or item.get('model_type') == mt):
+                paths.append("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + item["path"])
     async with aiohttp.ClientSession() as session:
         ret = await asyncio.gather(*(
-            get("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + url, session,
+            get(url, session,
                 resultant_dir) for url in paths))
-
-
-def get_number_of_models(data, num_species, num_reactions, model_type):
-    return len([item['path'] for item in
-                data if
-                item["numSpecies"] == num_species and item["numReactions"] == num_reactions and item[
-                    "modelType"] == model_type])
 
 
 def get_summary(data):
@@ -65,17 +68,37 @@ def get_summary(data):
             for spEnum in species_nums:
                 summary[type + ' with ' + num.__str__() + ' reactions and ' + spEnum.__str__() + " species"] = (
                     len([item['path'] for item in data if
-                         item["numSpecies"] == num and item["numReactions"] == spEnum and item["modelType"] == type]))
+                         item["numSpecies"] == spEnum and item["numReactions"] == num and item["modelType"] == type]))
     return summary
+
 
 def get_total_number_of_model_types(data):
     return len({item["modelType"] for item in data})
 
 
+def get_number_of_models_with_attrib(data, num_species=None, num_reactions=None, model_type=None):
+    count = 0
+    combinations = itertools.product(
+        [None, num_species] if num_species is not None else [None],
+        [None, num_reactions] if num_reactions is not None else [None],
+        [None, model_type] if model_type is not None else [None]
+    )
+
+    for ns, nr, mt in combinations:
+        for item in data:
+            if (ns is None or item.get('num_species') == ns) and \
+                    (nr is None or item.get('num_reactions') == nr) and \
+                    (mt is None or item.get('model_type') == mt):
+                count += 1
+
+    return count
+
+
 start = time.time()
 metadata = get_metadata()
 print(get_total_number_of_model_types(metadata))
+print(get_number_of_models_with_attrib(metadata))
 #example: lookup models with 3 species and 3 reactions, and put them into the "osc123" directory
-asyncio.run(lookup(metadata, 3, 9, "osc123/"))
+asyncio.run(lookup(metadata, 3, 9, "oscillator", "osc123/"))
 end = time.time()
 print(end - start)
