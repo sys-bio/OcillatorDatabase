@@ -1,9 +1,7 @@
 import asyncio
-import itertools
 import json
 import os.path
 import time
-from dataclasses import dataclass
 
 import aiohttp
 import requests
@@ -96,6 +94,6 @@ print(get_summary(metadata))
 print(get_number_of_models_with_attrib(metadata, num_species=3, model_type="oscillator"))
 
 #example: lookup models with 3 species and 3 reactions, and put them into the "osc123" directory
-asyncio.run(lookup(metadata, "osc123/", 3, 2, "oscillator"))
+asyncio.run(lookup(metadata, "osc123/", 3, 4, "oscillator"))
 end = time.time()
 print(end - start)
