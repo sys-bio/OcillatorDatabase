@@ -1,4 +1,5 @@
 import asyncio
+import itertools
 import json
 import os.path
 import time
@@ -50,21 +51,30 @@ async def lookup(data, resultant_dir, num_species=None, num_reactions=None, mode
                 resultant_dir) for url in paths))
 
 
-def get_summary(data):
-    summary = {
-        "total amount of models": len(data),
-    }
+def get_summary(data, asString = False):
+    if (asString):
+        summary = "Total amount of models: " + len(data).__str__()
+    else:
+        summary = {
+            "total amount of models": len(data),
+        }
     reaction_nums = {item['numReactions'] for item in data}
     species_nums = {item['numSpecies'] for item in data}
     model_types = {item['modelType'] for item in data}
-    #this is super slow and should be reworked with itertools
-    for modelType in model_types:
-        for num in reaction_nums:
-            for spEnum in species_nums:
-                summary[modelType + ' with ' + num.__str__() + ' reactions and ' + spEnum.__str__() + " species"] = (
-                    len([item['path'] for item in data if
-                         item["numSpecies"] == spEnum and item["numReactions"] == num and item[
-                             "modelType"] == modelType]))
+
+    combinations = itertools.product(
+        reaction_nums,
+        species_nums,
+        model_types
+    )
+    for nr, ns, mt in combinations:
+        amnt = len([item['path'] for item in data if
+                    item["numSpecies"] == ns and item["numReactions"] == nr and item["modelType"] == mt])
+        if (amnt != 0):
+            if (asString):
+                summary += f"\nAmount of {mt} models with {nr} reactions and {ns} species: " + amnt.__str__()
+            else:
+                summary[f"\nAmount of ${mt} models with ${nr} reactions and ${ns} species"] = amnt
     return summary
 
 
@@ -88,7 +98,8 @@ start = time.time()
 metadata = get_metadata()
 
 #example: print a summary of the dataset
-print(get_summary(metadata))
+print(get_summary(metadata, asString=True))
+
 
 #example: print the amount of models with 3 species and of type oscillator
 print(get_number_of_models_with_attrib(metadata, num_species=3, model_type="oscillator"))
@@ -97,3 +108,5 @@ print(get_number_of_models_with_attrib(metadata, num_species=3, model_type="osci
 asyncio.run(lookup(metadata, "osc123/", 3, 4, "oscillator"))
 end = time.time()
 print(end - start)
+
+
