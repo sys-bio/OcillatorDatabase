@@ -1,3 +1,4 @@
+import itertools
 import json
 import os
 import time
@@ -20,20 +21,17 @@ print(time.time() - now)
 '''
 
 def setGetPaths(data, num_species=None, num_reactions=None, model_type=None):
-    now = time.time()
     to_union = []
     if num_species is not None:
         to_union.append(set(data['numSpecies'][num_species.__str__()]))
     if num_reactions is not None:
-        to_union.append(set(data['numReactions'][num_species.__str__()]))
+        to_union.append(set(data['numReactions'][num_reactions.__str__()]))
     if model_type is not None:
-        to_union.append(set(data['modelType'][num_species.__str__()]))
+        to_union.append(set(data['modelType'][model_type.__str__()]))
     x = set.intersection(*to_union)
-    print(time.time() - now)
     return x
 
 def countAll(data):
-    now = time.time()
     x = set()
     for item in data['numSpecies']:
         x.update(set(data['numSpecies'][item]))
@@ -41,12 +39,38 @@ def countAll(data):
         x.update(set(data['numReactions'][item]))
     for item in data['modelType']:
         x.update(set(data['modelType'][item]))
-    print(now - time.time())
     return len(x)
 
+def combinate(data):
+    return itertools.product (
+        [item for item in data['numSpecies']],
+        [item for item in data['numReactions']],
+        [item for item in data['modelType']])
 
+
+def get_summary(data, asString = False):
+    now = time.time()
+    length = countAll(data)
+    if (asString):
+        summary = "Total amount of models: " + length.__str__()
+    else:
+        summary = {
+            "total amount of models": length,
+        }
+
+    combinations = combinate(data)
+    for ns, nr, mt in combinations:
+        amnt = len(setGetPaths(data, ns, nr, mt))
+        if (amnt != 0):
+            if (asString):
+                summary += f"\nAmount of {mt} models with {nr} reactions and {ns} species: " + amnt.__str__()
+            else:
+                summary[f"\nAmount of ${mt} models with ${nr} reactions and ${ns} species"] = amnt
+    print(time.time() - now)
+    return summary
 
 #print(setGetPaths(json.load(open("setmetadata.json", "r"))[0], num_species=3, num_reactions=4))
-print(countAll(json.load(open("setmetadata.json", "r"))[0]))
+#print(countAll(json.load(open("setmetadata.json", "r"))[0]))
+print(get_summary(json.load(open("setmetadata.json", 'r'))[0], True))
 
 
