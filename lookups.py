@@ -17,7 +17,7 @@ def request_metadata(checksum):
 
 
 def get_metadata():
-    checksum = requests.head(
+    checksum = requests.get(
         "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
     if not os.path.isfile("checksum") or not os.path.isfile("metadata.json"):
         return request_metadata(checksum)
@@ -36,6 +36,7 @@ async def get(url, session, resultant_dir):
 
 
 async def lookup(data, resultant_dir, num_species=None, num_reactions=None, model_type=None, ):
+    now = time.time()
     paths = []
     for item in data:
         if (num_species is None or item.get('numSpecies') == num_species) and \
