@@ -11,8 +11,10 @@ import requests
 def request_metadata(checksum):
     data = requests.get(
         "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").text
-    open("metadata.json", "w").write(data)
-    open("checksum", "w").write(checksum)
+    with open("metadata.json", "w") as f:
+        f.write(data)
+    with open("checksum", "w") as f:
+        f.write(checksum)
     return data
 
 
@@ -21,16 +23,20 @@ def get_metadata():
         "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
     if not os.path.isfile("checksum") or not os.path.isfile("metadata.json"):
         return request_metadata(checksum)
-    if checksum != open("checksum", "r").read():
+    with open("checksum", "r") as f:
+        loadck = f.read()
+    if checksum != loadck:
         return request_metadata(checksum)
-    return json.load(open("metadata.json", "r"))
+    with open("metadata.json", "r") as f:
+        return json.load(f)
 
 
 async def get(url, session, resultant_dir):
     try:
         async with session.get(url=url) as response:
             resp = await response.text()
-            open(resultant_dir + url.split("/")[-1], "w").write(resp)
+            with open(resultant_dir + url.split("/")[-1], "w") as f:
+                f.write(resp)
     except Exception as e:
         print("Unable to get url {} due to {}.".format(url, e.__class__))
 
@@ -106,7 +112,7 @@ print(get_summary(metadata, asString=True))
 print(get_number_of_models_with_attrib(metadata, num_species=3, model_type="oscillator"))
 
 #example: lookup models with 3 species and 3 reactions, and put them into the "osc123" directory
-asyncio.run(lookup(metadata, "osc123/", 3, 4, "oscillator"))
+asyncio.run(lookup(metadata, "osc123/", 3, 3, "oscillator"))
 end = time.time()
 print(end - start)
 

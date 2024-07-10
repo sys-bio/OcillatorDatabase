@@ -14,6 +14,7 @@ def upload(model_type, num_species, num_reactions, location):
             "path": location
         })
         open("metadata.json", "w").write(data)
+        #edit checksum
         print("added model")
         return
     except:
@@ -37,6 +38,7 @@ def edit(filepath_to_change, replacement_ant_string, model_type, num_species, nu
         open("metadata.json", "w").write(data)
         fp.write(replacement_ant_string)
         print("added model")
+        # edit checksum
         return
     except:
         print("failed to add placeholder")
@@ -50,6 +52,7 @@ def delete(path):
                 data.remove(item)
                 break
         open("metadata.json", "w").write(data)
+        # edit checksum
         print("added model")
         return
     except:
