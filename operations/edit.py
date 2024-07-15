@@ -18,25 +18,6 @@ def process_model(file_path, filename, data):
         })
 
 
-def upload(location):
-    try:
-        with open("metadata.json", "r") as f:
-            data = json.load(f)
-        if(os.path.isfile(location)):
-            process_model("/".join("/a/b/a.txt".split("/")[:-1]), location.split("/")[-1], data)
-        else:
-            for filename in os.listdir(location):
-                process_model(location, filename, data)
-        with open("metadata.json", "w") as f:
-            json.dump(data, f)
-        with open("checksum", "w") as ch:
-            ch.write(( int(ch.read())+1).__str__())
-        print("added model")
-        return
-    except:
-        print("failed to add placeholder")
-
-
 def edit(filepath_to_change, replacement_ant_string):
     try:
         with open("metadata.json", "r") as f:
@@ -63,23 +44,4 @@ def edit(filepath_to_change, replacement_ant_string):
         return
     except:
         print("failed to add placeholder")
-
-
-def delete(path):
-    try:
-        with open("metadata.json", "r") as f:
-            data = json.load(f)
-        for item in data:
-            if item['path'] == path:
-                data.remove(item)
-                break
-        with open("metadata.json", "w") as f:
-            json.dump(data, f)
-        with open("checksum", "w") as ch:
-            ch.write(( int(ch.read())+1).__str__())
-        print("added model")
-        return
-    except:
-        print("failed to add placeholder")
-
 
