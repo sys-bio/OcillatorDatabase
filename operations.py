@@ -37,17 +37,19 @@ def upload(location):
         print("failed to add placeholder")
 
 
-def edit(filepath_to_change, replacement_ant_string, model_type, num_species, num_reactions):
+def edit(filepath_to_change, replacement_ant_string):
     try:
         with open("metadata.json", "r") as f:
             data = json.load(f)
         for item in data:
             if item['path'] == filepath_to_change:
                 data.remove(item)
+                r = te.loada(replacement_ant_string)
+                numSpecies = r.getNumFloatingSpecies()
+                numReactions = r.getNumReactions()
                 data.append({
-                    "numSpecies": num_species,
-                    "numReactions": num_reactions,
-                    "modelType": model_type,
+                    "numSpecies": numSpecies,
+                    "numReactions": numReactions,
                     "path": filepath_to_change
                 })
                 break
