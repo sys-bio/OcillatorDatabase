@@ -1,6 +1,7 @@
 #these would happen as github actions
 import json
 import os
+import sys
 
 import aiofiles
 import tellurium as te
@@ -44,4 +45,6 @@ def edit(filepath_to_change, replacement_ant_string):
         return
     except:
         print("failed to add placeholder")
+
+edit(sys.argv[1], sys.argv[2])
 

@@ -1,6 +1,8 @@
 #these would happen as github actions
 import json
 import os
+import sys
+
 
 def delete(path):
     try:
@@ -23,4 +25,4 @@ def delete(path):
     except:
         print("failed to add placeholder")
 
-
+delete(sys.argv[1])
