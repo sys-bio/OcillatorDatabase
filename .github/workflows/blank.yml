@@ -1,17 +1,10 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: upload
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      fileOrFolder:
+        description: 'name of ant file or name of folder containing ant files'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,12 +18,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: add_file
+        run: python operations/upload.py ${{ github.event.inputs.fileOrFolder }}
+        shell: sh
+      - name: stage changed files
+        run: git add .
+      - name: identity
+        run: git config --global user.email "epshteinmatthew@gmail.com"
+      - name: identity2
+        run: git config --global user.name "Matthew Epshtein"
+      - name: commit changed files
+        run: git commit -m "Auto updating files"
+      - name: fetch from master
+        run: git fetch origin main
+      - name: push code to master
+        run: git push origin HEAD:main
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+
+
