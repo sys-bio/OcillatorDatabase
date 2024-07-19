@@ -1,10 +1,13 @@
+import asyncio
 import itertools
 import json
 import os
 import time
 import typing
+import oscillatorlookups
 
 import requests
+import oscillatorlookups.lookups as osc
 
 '''
 now = time.time()
@@ -69,8 +72,7 @@ def get_summary(data, asString = False):
     print(time.time() - now)
     return summary
 
-#print(setGetPaths(json.load(open("setmetadata.json", "r"))[0], num_species=3, num_reactions=4))
-#print(countAll(json.load(open("setmetadata.json", "r"))[0]))
-print(get_summary(json.load(open("setmetadata.json", 'r'))[0], True))
 
 
+metadata = osc.get_metadata()
+asyncio.run(osc.lookup(metadata, "osc123/", 3, 4, "oscillator"))

@@ -19,9 +19,9 @@ class Model(msgspec.Struct):
 def request_metadata(checksum):
     data = requests.get(
         "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").text
-    with open("metadata.json", "w") as f:
+    with open("../../metadata.json", "w") as f:
         f.write(data)
-    with open("checksum", "w") as f:
+    with open("../../checksum", "w") as f:
         f.write(checksum)
     return data
 
@@ -29,13 +29,13 @@ def request_metadata(checksum):
 def get_metadata():
     checksum = requests.get(
         "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
-    if not os.path.isfile("checksum") or not os.path.isfile("metadata.json"):
+    if not os.path.isfile("../../checksum") or not os.path.isfile("../../metadata.json"):
         return request_metadata(checksum)
-    with open("checksum", "r") as f:
+    with open("../../checksum", "r") as f:
         loadck = f.read()
     if checksum != loadck:
         return request_metadata(checksum)
-    with open("metadata.json", "r") as f:
+    with open("../../metadata.json", "r") as f:
         return msgspec.json.decode(f.read(), type=list[Model])
 
 
