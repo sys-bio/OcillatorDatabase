@@ -10,7 +10,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title></title>
-        <link rel="stylesheet" href="css/style.css" />
         <meta name="description" content="" />
 
         <meta property="og:title" content="cesium database" />
@@ -25,6 +24,85 @@
 
         <link rel="manifest" href="site.webmanifest" />
         <meta name="theme-color" content="#fafafa" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelector('#form').addEventListener('submit', (event) => {
+                    // Stop form from submitting
+                    event.preventDefault();
+                    // Define Form Object
+                    let formObject = {};
+                    // Find All Inputs in Form
+                    event.target.querySelectorAll('input, textarea, select').forEach((element) => {
+                        // only grab stuff with a name
+                        if (element.name) {
+                            formObject[element.name] = element.value;
+                        }
+                    });
+                    if(formObject.mType !== "Please Select" && !isNaN(parseInt(formObject.nreactions)) && !isNaN(parseInt(formObject.nreactions))){
+                        document.getElementById("found").innerHTML = "Amount of models found: " + lookup(parseInt(formObject.nspecies), formObject.mType, parseInt(formObject.nreactions));
+                    }
+                });
+            });
+            let paths = [];
+            let data;
+            load_metadata().then(mtd => {
+                console.log(mtd);
+                data = mtd;  // Logs the JSON data from the fetched URL
+            }).catch(error => {
+                console.error('Error:', error);  // Logs any error that occurred during the fetch
+            });
+
+            function lookup(species_num = null, model_type = null, reaction_num = null) {
+                paths = data
+                    .filter(
+                        (item) =>
+                            (species_num === null || item.numSpecies === species_num) &&
+                            (reaction_num === null || item.numReactions === reaction_num) &&
+                            (model_type === null || item.modelType === model_type),
+                    )
+                    .map((item) => "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + item.path);
+                return paths.length;
+            }
+
+            function load_metadata() {
+                return fetch("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").then(
+                    (response) => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    }
+                )
+            }
+
+            async function fetchFile(url) {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.blob();
+            }
+
+            async function downloadFiles() {
+                if (paths.length === 0) {
+                    return;
+                    //modify something!
+                }
+                const zip = new JSZip();
+                for (const path of paths) {
+                    const filename = path.split('/').pop();
+                    const fileBlob = await fetchFile(path);
+                    zip.file(filename, fileBlob);
+                }
+
+                const content = await zip.generateAsync({type: 'blob'});
+                saveAs(content, 'models.zip');
+            }
+
+        </script>
     </head>
 
     <body>
@@ -32,7 +110,7 @@
 
         <div class="text-center">
             <h1>Cesium Database Lookup</h1>
-            <form id="lookupitems">
+            <form id = "form" >
                 <label for="numReactions">Number of Reactions:</label><br />
                 <input
                     type="number"
@@ -65,15 +143,14 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button class="btn btn-primary" type="submit">
                     Lookup Models
                 </button>
             </form>
             <br />
             <hr />
-            <p>Amount of models found: 0</p>
-            <button class="btn btn-primary">Download found models</button>
+            <p id = "found">Amount of models found: 0</p>
+            <button class="btn btn-primary" onclick="downloadFiles()">Download found models</button>
         </div>
-        <script src="js/app.js"></script>
     </body>
 </html>
