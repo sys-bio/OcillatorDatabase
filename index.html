@@ -41,8 +41,12 @@
                             formObject[element.name] = element.value;
                         }
                     });
-                    if(formObject.mType !== "Please Select" && !isNaN(parseInt(formObject.nreactions)) && !isNaN(parseInt(formObject.nreactions))){
-                        document.getElementById("found").innerHTML = "Amount of models found: " + lookup(parseInt(formObject.nspecies), formObject.mType, parseInt(formObject.nreactions));
+
+                    console.log(formObject)
+                    if(formObject.mType !== "Please Select"){
+                        document.getElementById("found").innerHTML = "Amount of models found: " +
+                            lookup(
+                                (!isNaN(parseInt(formObject.nspecies)) ? parseInt(formObject.nspecies) : null), formObject.mType, (!isNaN(parseInt(formObject.nreactions)) ? parseInt(formObject.nreactions) : null))
                     }
                 });
             });
