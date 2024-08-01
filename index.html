@@ -59,6 +59,7 @@
                     const reaction_num = numReactionsInput.value ? parseInt(numReactionsInput.value) : null;
                     const model_type = modelTypeInput.value !== 'Please select' ? modelTypeInput.value : null;
 
+                    document.getElementById("spectext").innerHTML = ""
                     paths = data
                         .filter(
                             (item) =>
