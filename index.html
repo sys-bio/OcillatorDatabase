@@ -84,21 +84,25 @@
             }
 
                 async function downloadFiles() {
-                    if (paths.length === 0) {
-                        document.getElementById("spectext").innerHTML = "No models selected, no models downloaded."
-                        return;
-                    }
-                    document.getElementById("spectext").innerHTML = "Downloading models..."
-                    const zip = new JSZip();
-                    for (const path of paths) {
-                        const filename = path.split('/').pop();
-                        const fileBlob = await fetchFile(path);
-                        zip.file(filename, fileBlob);
-                    }
+                        if (paths.length === 0) {
+                            document.getElementById("spectext").innerHTML = "No models selected, no models downloaded."
+                            return;
+                        }
 
-                    const content = await zip.generateAsync({ type: 'blob' });
-                    saveAs(content, 'models.zip');
-                    document.getElementById("spectext").innerHTML = "Downloaded models."
+                        document.getElementById("spectext").innerHTML = "Downloading models..."
+                        const zip = new JSZip();
+                        const fetchPromises = paths.map(async (path) => {
+                            const filename = path.split('/').pop();
+                            const fileBlob = await fetchFile(path);
+                            zip.file(filename, fileBlob);
+                        });
+
+                        await Promise.all(fetchPromises);
+
+                        const content = await zip.generateAsync({ type: 'blob' });
+                        saveAs(content, 'models.zip');
+
+                        document.getElementById("spectext").innerHTML = "Downloaded models."
                 }
 
 
