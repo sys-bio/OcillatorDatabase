@@ -28,48 +28,78 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
         <script>
 
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelector('#form').addEventListener('submit', (event) => {
-                    // Stop form from submitting
-                    event.preventDefault();
-                    // Define Form Object
-                    let formObject = {};
-                    // Find All Inputs in Form
-                    event.target.querySelectorAll('input, textarea, select').forEach((element) => {
-                        // only grab stuff with a name
-                        if (element.name) {
-                            formObject[element.name] = element.value;
-                        }
-                    });
-
-                    console.log(formObject)
-                    if(formObject.mType !== "Please Select"){
-                        document.getElementById("found").innerHTML = "Amount of models found: " +
-                            lookup(
-                                (!isNaN(parseInt(formObject.nspecies)) ? parseInt(formObject.nspecies) : null), formObject.mType, (!isNaN(parseInt(formObject.nreactions)) ? parseInt(formObject.nreactions) : null))
-                    }
-                });
-            });
             let paths = [];
             let data;
-            load_metadata().then(mtd => {
-                console.log(mtd);
-                data = mtd;  // Logs the JSON data from the fetched URL
-            }).catch(error => {
-                console.error('Error:', error);  // Logs any error that occurred during the fetch
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.querySelector('#form');
+                const numReactionsInput = document.querySelector('#numReactions');
+                const numSpeciesInput = document.querySelector('#numSpecies');
+                const modelTypeInput = document.querySelector('#mtype');
+                const modelsFound = document.querySelector('#found');
+
+
+
+                form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    lookupModels();
+                });
+
+                numReactionsInput.addEventListener('input', lookupModels);
+                numSpeciesInput.addEventListener('input', lookupModels);
+                modelTypeInput.addEventListener('input', lookupModels);
+
+                load_metadata().then(mtd => {
+                    data = mtd;  // Store the JSON data from the fetched URL
+                }).catch(error => {
+                    console.error('Error:', error);  // Logs any error that occurred during the fetch
+                });
+
+                function lookupModels() {
+                    const species_num = numSpeciesInput.value ? parseInt(numSpeciesInput.value) : null;
+                    const reaction_num = numReactionsInput.value ? parseInt(numReactionsInput.value) : null;
+                    const model_type = modelTypeInput.value !== 'Please select' ? modelTypeInput.value : null;
+
+                    paths = data
+                        .filter(
+                            (item) =>
+                                (species_num === null || item.numSpecies === species_num) &&
+                                (reaction_num === null || item.numReactions === reaction_num) &&
+                                (model_type === null || item.modelType === model_type)
+                        )
+                        .map((item) => "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + item.path);
+
+                    modelsFound.textContent = `Amount of models found: ${paths.length}`;
+                }
             });
 
-            function lookup(species_num = null, model_type = null, reaction_num = null) {
-                paths = data
-                    .filter(
-                        (item) =>
-                            (species_num === null || item.numSpecies === species_num) &&
-                            (reaction_num === null || item.numReactions === reaction_num) &&
-                            (model_type === null || item.modelType === model_type),
-                    )
-                    .map((item) => "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + item.path);
-                return paths.length;
+
+
+            async function fetchFile(url) {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.blob();
             }
+
+                async function downloadFiles() {
+                    if (paths.length === 0) {
+                        document.getElementById("spectext").innerHTML = "No models selected, no models downloaded."
+                        return;
+                    }
+                    document.getElementById("spectext").innerHTML = "Downloading models..."
+                    const zip = new JSZip();
+                    for (const path of paths) {
+                        const filename = path.split('/').pop();
+                        const fileBlob = await fetchFile(path);
+                        zip.file(filename, fileBlob);
+                    }
+
+                    const content = await zip.generateAsync({ type: 'blob' });
+                    saveAs(content, 'models.zip');
+                    document.getElementById("spectext").innerHTML = "Downloaded models."
+                }
+
 
             function load_metadata() {
                 return fetch("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").then(
@@ -81,31 +111,6 @@
                     }
                 )
             }
-
-            async function fetchFile(url) {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.blob();
-            }
-
-            async function downloadFiles() {
-                if (paths.length === 0) {
-                    return;
-                    //modify something!
-                }
-                const zip = new JSZip();
-                for (const path of paths) {
-                    const filename = path.split('/').pop();
-                    const fileBlob = await fetchFile(path);
-                    zip.file(filename, fileBlob);
-                }
-
-                const content = await zip.generateAsync({type: 'blob'});
-                saveAs(content, 'models.zip');
-            }
-
         </script>
     </head>
 
@@ -147,14 +152,13 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">
-                    Lookup Models
-                </button>
             </form>
             <br />
-            <hr />
             <p id = "found">Amount of models found: 0</p>
             <button class="btn btn-primary" onclick="downloadFiles()">Download found models</button>
+            <br>
+            <br>
+            <p id = "spectext" class="text-primary"></p>
         </div>
     </body>
 </html>
