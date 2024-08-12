@@ -1,7 +1,7 @@
 
 from setuptools import setup, find_packages
 
-VERSION = '0.1.4'
+VERSION = '1.1'
 DESCRIPTION = 'Lookup operations for oscillator database'
 LONG_DESCRIPTION = 'Lookup operations for oscillator database, hosted on github'
 
@@ -17,7 +17,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "aiohttp",
-        "aiofiles"
+        "aiofiles",
         "msgspec"
     ],  # add any additional packages that
     # needs to be installed along with your package. Eg: 'caer'

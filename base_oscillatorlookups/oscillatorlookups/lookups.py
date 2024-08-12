@@ -88,7 +88,7 @@ def get_summary(data, asString = False):
             if (asString):
                 summary += f"\nAmount of {mt} models with {nr} reactions and {ns} species: " + amnt.__str__()
             else:
-                summary[f"\nAmount of ${mt} models with ${nr} reactions and ${ns} species"] = amnt
+                summary[f"Amount of {mt} models with {nr} reactions and {ns} species"] = amnt
     return summary
 
 
@@ -113,7 +113,9 @@ metadata = get_metadata()
 print(time.time() - start)
 
 #example: print a summary of the dataset
-print(get_summary(metadata, asString=True))
+e = get_summary(metadata, asString=False)
+for line in e:
+    print(line + ":" + e[line].__str__())
 
 
 #example: print the amount of models with 3 species and of type oscillator

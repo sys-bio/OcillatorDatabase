@@ -27,94 +27,142 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
         <script>
-
             let paths = [];
             let data;
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.querySelector('#form');
-                const numReactionsInput = document.querySelector('#numReactions');
-                const numSpeciesInput = document.querySelector('#numSpecies');
-                const modelTypeInput = document.querySelector('#mtype');
-                const modelsFound = document.querySelector('#found');
+            let minR = 100;
+            let maxR = 0;
+            let minS = 100;
+            let maxS = 0;
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("#form");
+                const numReactionsInput =
+                    document.querySelector("#numReactions");
+                const numSpeciesInput = document.querySelector("#numSpecies");
+                const modelTypeInput = document.querySelector("#mtype");
+                const modelsFound = document.querySelector("#found");
 
-
-
-                form.addEventListener('submit', (event) => {
+                form.addEventListener("submit", (event) => {
                     event.preventDefault();
                     lookupModels();
                 });
 
-                numReactionsInput.addEventListener('input', lookupModels);
-                numSpeciesInput.addEventListener('input', lookupModels);
-                modelTypeInput.addEventListener('input', lookupModels);
+                numReactionsInput.addEventListener("input", lookupModels);
+                numSpeciesInput.addEventListener("input", lookupModels);
+                modelTypeInput.addEventListener("input", lookupModels);
 
-                load_metadata().then(mtd => {
-                    data = mtd;  // Store the JSON data from the fetched URL
-                }).catch(error => {
-                    console.error('Error:', error);  // Logs any error that occurred during the fetch
-                });
+                load_metadata()
+                    .then((mtd) => {
+                        data = mtd; // Store the JSON data from the fetched URL
+                        console.log(data[0]);
+                        for (let i = 0; i < data.length; i++) {
+                            if (data[i].numSpecies > maxS) {
+                                maxS = data[i].numSpecies;
+                            }
+                            if (data[i].numSpecies < minS) {
+                                minS = data[i].numSpecies;
+                            }
+                            if (data[i].numReactions > maxR) {
+                                maxR = data[i].numReactions;
+                            }
+                            if (data[i].numReactions < minR) {
+                                minR = data[i].numReactions;
+                            }
+                        }
+
+                        numSpeciesInput.setAttribute("min", minS.toString());
+                        numSpeciesInput.setAttribute("max", maxS.toString());
+                        numReactionsInput.setAttribute("min", minR.toString());
+                        numReactionsInput.setAttribute("max", maxR.toString());
+
+                        document.querySelector("#nspl").textContent =
+                            `Number of Species (${minS.toString()}-${maxS.toString()}):`;
+                        document.querySelector("#nrpl").textContent =
+                            `Number of Reactions (${minR.toString()}-${maxR.toString()}):`;
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error); // Logs any error that occurred during the fetch
+                    });
 
                 function lookupModels() {
-                    const species_num = numSpeciesInput.value ? parseInt(numSpeciesInput.value) : null;
-                    const reaction_num = numReactionsInput.value ? parseInt(numReactionsInput.value) : null;
-                    const model_type = modelTypeInput.value !== 'Please select' ? modelTypeInput.value : null;
+                    const species_num = numSpeciesInput.value
+                        ? parseInt(numSpeciesInput.value)
+                        : null;
+                    const reaction_num = numReactionsInput.value
+                        ? parseInt(numReactionsInput.value)
+                        : null;
+                    const model_type =
+                        modelTypeInput.value !== "Please select"
+                            ? modelTypeInput.value
+                            : null;
 
-                    document.getElementById("spectext").innerHTML = ""
+                    document.getElementById("spectext").innerHTML = "";
                     paths = data
                         .filter(
                             (item) =>
-                                (species_num === null || item.numSpecies === species_num) &&
-                                (reaction_num === null || item.numReactions === reaction_num) &&
-                                (model_type === null || item.modelType === model_type)
+                                (species_num === null ||
+                                    item.numSpecies === species_num) &&
+                                (reaction_num === null ||
+                                    item.numReactions === reaction_num) &&
+                                (model_type === null ||
+                                    item.modelType === model_type),
                         )
-                        .map((item) => "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" + item.path);
+                        .map(
+                            (item) =>
+                                "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/" +
+                                item.path,
+                        );
 
                     modelsFound.textContent = `Amount of models found: ${paths.length}`;
                 }
             });
 
-
-
             async function fetchFile(url) {
                 const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error(
+                        "Network response was not ok " + response.statusText,
+                    );
                 }
                 return response.blob();
             }
 
-                async function downloadFiles() {
-                        if (paths.length === 0) {
-                            document.getElementById("spectext").innerHTML = "No models selected, no models downloaded."
-                            return;
-                        }
-
-                        document.getElementById("spectext").innerHTML = "Downloading models..."
-                        const zip = new JSZip();
-                        const fetchPromises = paths.map(async (path) => {
-                            const filename = path.split('/').pop();
-                            const fileBlob = await fetchFile(path);
-                            zip.file(filename, fileBlob);
-                        });
-
-                        await Promise.all(fetchPromises);
-
-                        const content = await zip.generateAsync({ type: 'blob' });
-                        saveAs(content, 'models.zip');
-
-                        document.getElementById("spectext").innerHTML = "Downloaded models."
+            async function downloadFiles() {
+                if (paths.length === 0) {
+                    document.getElementById("spectext").innerHTML =
+                        "No models selected, no models downloaded.";
+                    return;
                 }
 
+                document.getElementById("spectext").innerHTML =
+                    "Downloading models...";
+                const zip = new JSZip();
+                const fetchPromises = paths.map(async (path) => {
+                    const filename = path.split("/").pop();
+                    const fileBlob = await fetchFile(path);
+                    zip.file(filename, fileBlob);
+                });
+
+                await Promise.all(fetchPromises);
+
+                const content = await zip.generateAsync({ type: "blob" });
+                saveAs(content, "models.zip");
+
+                document.getElementById("spectext").innerHTML =
+                    "Downloaded models.";
+            }
 
             function load_metadata() {
-                return fetch("https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").then(
-                    (response) => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                        return response.json();
+                return fetch(
+                    "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json",
+                ).then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            "Network response was not ok " +
+                                response.statusText,
+                        );
                     }
-                )
+                    return response.json();
+                });
             }
         </script>
     </head>
@@ -124,14 +172,16 @@
 
         <div class="text-center">
             <h1>Cesium Database Lookup</h1>
-            <form id = "form" >
-                <label for="numReactions">Number of Reactions:</label><br />
+            <form id="form">
+                <label id="nrpl" for="numReactions">Number of Reactions:</label
+                ><br />
                 <input
                     type="number"
                     id="numReactions"
                     name="nreactions"
                 /><br />
-                <label for="numSpecies">Number of Species:</label><br />
+                <label id="nspl" for="numSpecies">Number of Species:</label
+                ><br />
                 <input type="number" id="numSpecies" name="nspecies" /><br />
                 <div class="row mb-4 justify-content-center">
                     <div class="col-auto">
@@ -159,11 +209,13 @@
                 </div>
             </form>
             <br />
-            <p id = "found">Amount of models found: 0</p>
-            <button class="btn btn-primary" onclick="downloadFiles()">Download found models</button>
-            <br>
-            <br>
-            <p id = "spectext" class="text-primary"></p>
+            <p id="found">Amount of models found: 0</p>
+            <button class="btn btn-primary" onclick="downloadFiles()">
+                Download found models
+            </button>
+            <br />
+            <br />
+            <p id="spectext" class="text-primary"></p>
         </div>
     </body>
 </html>
