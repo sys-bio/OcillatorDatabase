@@ -16,9 +16,10 @@ class Model(msgspec.Struct):
     numReactions: int
 
 
-def request_metadata(checksum):
-    data = requests.get(
-        "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json").text
+def request_metadata(checksum, url):
+    data = requests.get( url
+        #"https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/metadata.json"
+     ).text
     with open("../../metadata.json", "w") as f:
         f.write(data)
     with open("../../checksum", "w") as f:
@@ -26,15 +27,17 @@ def request_metadata(checksum):
     return data
 
 
-def get_metadata():
+def get_metadata(repoURL:str):
+    #https://github.com/epshteinmatthew/OscillatorDatabase/
+    rawUrl = "https://raw.githubusercontent.com/" + repoURL.split("/")[3] + "/" + repoURL.split[4] + "/master/"
     checksum = requests.get(
-        "https://raw.githubusercontent.com/epshteinmatthew/OscillatorDatabase/master/checksum").text
+        rawUrl + "checksum").text
     if not os.path.isfile("../../checksum") or not os.path.isfile("../../metadata.json"):
-        return request_metadata(checksum)
+        return request_metadata(checksum,rawUrl + "metadata.json")
     with open("../../checksum", "r") as f:
         loadck = f.read()
     if checksum != loadck:
-        return request_metadata(checksum)
+        return request_metadata(checksum, rawUrl + "metadata.json")
     with open("../../metadata.json", "r") as f:
         return msgspec.json.decode(f.read(), type=list[Model])
 

@@ -74,5 +74,6 @@ def get_summary(data, asString = False):
 
 
 
-metadata = osc.get_metadata()
+metadata = osc.get_metadata("https://github.com/epshteinmatthew/OscillatorDatabase/")
 asyncio.run(osc.lookup(metadata, "osc123/", 3, 4, "oscillator"))
+osc.get_summary(metadata)
