@@ -29,7 +29,7 @@ def request_metadata(checksum, url):
 
 def get_metadata(repoURL:str):
     #https://github.com/epshteinmatthew/OscillatorDatabase/
-    rawUrl = "https://raw.githubusercontent.com/" + repoURL.split("/")[3] + "/" + repoURL.split[4] + "/master/"
+    rawUrl = "https://raw.githubusercontent.com/" + repoURL.split("/")[3] + "/" + repoURL.split("/")[4] + "/master/"
     checksum = requests.get(
         rawUrl + "checksum").text
     if not os.path.isfile("../../checksum") or not os.path.isfile("../../metadata.json"):
@@ -52,7 +52,7 @@ async def downloadAntString(url, session, resultant_dir):
         print("Unable to get url {} due to {}.".format(url, e.__class__))
 
 
-async def lookup(data, resultant_dir, num_species=None, num_reactions=None, model_type=None, ):
+async def lookup(data:list[Model], resultant_dir, num_species=None, num_reactions=None, model_type=None, ):
     paths = []
     for item in data:
         if (num_species is None or item.numSpecies == num_species) and \
@@ -68,7 +68,7 @@ async def lookup(data, resultant_dir, num_species=None, num_reactions=None, mode
                               resultant_dir) for url in paths))
 
 
-def get_summary(data, asString = False):
+def get_summary(data:list[Model], asString = False):
     if (asString):
         summary = "Total amount of models: " + len(data).__str__()
     else:
@@ -94,12 +94,22 @@ def get_summary(data, asString = False):
                 summary[f"Amount of {mt} models with {nr} reactions and {ns} species"] = amnt
     return summary
 
+def get_model_type_info(data:list[Model]):
+    typesSet = {item.modelType for item in data}
+    return {"typesAmount" : len(typesSet), "types" : typesSet}
 
-def get_total_number_of_model_types(data):
-    return len({item.modelType for item in data})
+def get_accepted_ranges(data:list[Model], reactions = True, species = True, ):
+    dicts = {}
+    if reactions:
+        dicts["reactionsRange"] = ({item.modelType for item in data})
+    if species:
+        dicts["speciesRange"] = ({item.modelType for item in data})
+    for key in dicts.keys():
+        dicts[key] = (min(dicts[key]), max(dicts[key]))
+    return dicts
 
 
-def get_number_of_models_with_attrib(data, num_species=None, num_reactions=None, model_type=None):
+def get_number_of_models_with_attrib(data:list[Model], num_species=None, num_reactions=None, model_type=None):
     count = 0
 
     for item in data:
@@ -112,7 +122,7 @@ def get_number_of_models_with_attrib(data, num_species=None, num_reactions=None,
 
 
 start = time.time()
-metadata = get_metadata()
+metadata = get_metadata("https://github.com/epshteinmatthew/OscillatorDatabase")
 print(time.time() - start)
 
 #example: print a summary of the dataset
